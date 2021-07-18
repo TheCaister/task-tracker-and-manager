@@ -1,0 +1,5 @@
+// Create new Angular app
+ng new [name]
+
+// Launch dev server
+ng serve
