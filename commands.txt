@@ -3,3 +3,6 @@ ng new [name]
 
 // Launch dev server
 ng serve
+
+// Generate components
+ng generate component [optional folder]/[component]
