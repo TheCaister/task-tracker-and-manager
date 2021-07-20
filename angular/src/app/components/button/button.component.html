@@ -1,1 +1,4 @@
-<button class="btn">{{ text }}</button>
+<!-- To add an event, write (event)="function". Must write the function in the class -->
+
+<!-- When the button is clicked, call the onClick function which emits an event perform some actions afterwards -->
+<button [ngStyle]="{'background-color': color}" class="btn" (click)="onClick()">{{ text }}</button>
