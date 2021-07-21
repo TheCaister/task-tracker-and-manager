@@ -1,7 +1,10 @@
 // Group of tasks
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../Task';
-import { TASKS } from '../../mock-tasks';
+
+// Importing service to call service methods
+import { TaskService } from '../../services/task.service';
+
 
 @Component({
   selector: 'app-tasks',
@@ -9,12 +12,17 @@ import { TASKS } from '../../mock-tasks';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  // Now we can use the tasks in the TASKS file
-  tasks: Task[] = TASKS;
+  // Initialising list of tasks as an empty array
+  tasks: Task[] = [];
 
-  constructor() { }
+  // To use a service, you must add it as a provider in the constructor
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
+    // Subscribe to the observable
+    // Works similar to promises
+    // Setting the tasks array
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 
 }
