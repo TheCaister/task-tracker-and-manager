@@ -25,4 +25,9 @@ export class TasksComponent implements OnInit {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 
+  deleteTask(task: Task) {
+    // Subscribe to the deleteTask observable
+    // Filters out all ids that are not equal to the id of the task being deleted
+    this.taskService.deleteTask(task).subscribe(() => (this.tasks = this.tasks.filter(t => t.id !== task.id)));
+  }
 }
