@@ -4,19 +4,19 @@
       "id": 1,
       "text": "Vaccine Shot",
       "day": "May 27th at 4:15pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 2,
       "text": "Meeting with friends",
       "day": "15th June at 1:17am",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 3,
       "text": "Alleyway Dealings",
       "day": "13 December at 3:43am",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 4,

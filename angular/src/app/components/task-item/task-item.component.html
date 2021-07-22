@@ -1,5 +1,9 @@
-<div class="task">
+<!-- Let the class be "reminder" if the task is a reminder using a conditional check -->
+<!-- Also toggles reminder if double-clicked -->
+<div [ngClass]="{reminder: task.reminder}" class="task"
+(dblclick)="onToggle(task)">
     <!-- Adding red x icon for deleting tasks -->
-    <h3>{{task.text}} <fa-icon (click)="onDelete(task)" [ngStyle]="{'color': 'red'}" [icon]="faTimes"></fa-icon></h3>
+    <h3>{{task.text}} <fa-icon (click)="onDelete(task)" [ngStyle]="{'color': 'red'}" [icon]="faTimes"></fa-icon>
+    </h3>
     <p>{{task.day}}</p>
 </div>

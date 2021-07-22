@@ -11,6 +11,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class TaskItemComponent implements OnInit {
   @Input() task: Task;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onToggleReminder : EventEmitter<Task> = new EventEmitter();
   // Set font as a property
   faTimes = faTimes;
 
@@ -21,5 +22,9 @@ export class TaskItemComponent implements OnInit {
 
   onDelete(task){
     this.onDeleteTask.emit(task);
+  }
+
+  onToggle(task){
+    this.onToggleReminder.emit(task);
   }
 }

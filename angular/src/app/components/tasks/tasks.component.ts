@@ -30,4 +30,10 @@ export class TasksComponent implements OnInit {
     // Filters out all ids that are not equal to the id of the task being deleted
     this.taskService.deleteTask(task).subscribe(() => (this.tasks = this.tasks.filter(t => t.id !== task.id)));
   }
+
+  toggleReminder(task){
+    // Toggles the reminder on and off
+    task.reminder = !task.reminder
+    this.taskService.updateTaskReminder(task).subscribe();
+  }
 }
