@@ -5,7 +5,8 @@ import { Task } from '../Task';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'COntent-Type': 'application/json'
+    // We're dealing with json text
+    'Content-Type': 'application/json'
   })
 }
 
@@ -33,5 +34,10 @@ export class TaskService {
   updateTaskReminder(task: Task) : Observable<Task>{
     const url = `${this.apiUrl}/${task.id}`;
     return this.http.put<Task>(url, task, httpOptions);
+  }
+
+  // addTask method creates a post request using the task passed in
+  addTask(task: Task) : Observable<Task>{
+    return this.http.post<Task>(this.apiUrl, task, httpOptions)
   }
 }
