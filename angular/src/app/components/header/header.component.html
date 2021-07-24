@@ -1,4 +1,5 @@
 <header>
     <h1>{{ title }}</h1>
-    <app-button color="green" text="Bruh" (btnClick)="toggleAddTask()"></app-button>
+    <!-- Selects which button to show depending on the value of showAddTask -->
+    <app-button color="{{showAddTask ? 'red' : 'green'}}" text="{{showAddTask ? 'Close' : 'Add'}}" (btnClick)="toggleAddTask()"></app-button>
 </header>

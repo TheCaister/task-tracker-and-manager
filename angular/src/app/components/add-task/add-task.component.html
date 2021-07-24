@@ -1,5 +1,5 @@
 <!-- Creating a form that the user can fill in to create a new task -->
-<form class="add-form" (ngSubmit)="onSubmit()">
+<form *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
     <!-- [] is input(binding), () is output(events) and [()] is two-way binding data -->
     <!-- Text -->
     <div class="form-control">
