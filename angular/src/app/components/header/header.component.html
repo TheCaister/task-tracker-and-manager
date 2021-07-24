@@ -1,5 +1,6 @@
 <header>
     <h1>{{ title }}</h1>
     <!-- Selects which button to show depending on the value of showAddTask -->
-    <app-button color="{{showAddTask ? 'red' : 'green'}}" text="{{showAddTask ? 'Close' : 'Add'}}" (btnClick)="toggleAddTask()"></app-button>
+    <!-- Only show if we're on the homepage -->
+    <app-button *ngIf="hasRoute('/')" color="{{showAddTask ? 'red' : 'green'}}" text="{{showAddTask ? 'Close' : 'Add'}}" (btnClick)="toggleAddTask()"></app-button>
 </header>
