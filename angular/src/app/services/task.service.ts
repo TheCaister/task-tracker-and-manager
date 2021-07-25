@@ -14,6 +14,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TaskService {
+  //List of task:boolean pairs to be used for the undo function
+  tasksHistory: {taskCurrent: Task, isDelete: boolean}[] = [];
+  
   private apiUrl = 'http://localhost:5000/tasks';
 
   // Adding HTTP client into constructor
@@ -28,6 +31,7 @@ export class TaskService {
   deleteTask(task: Task) : Observable<Task> {
     // Getting url of the specific task
     const url = `${this.apiUrl}/${task.id}`;
+    this.tasksHistory.push({taskCurrent: task, isDelete: true});
     return this.http.delete<Task>(url);
   }
 
@@ -38,6 +42,7 @@ export class TaskService {
 
   // addTask method creates a post request using the task passed in
   addTask(task: Task) : Observable<Task>{
+    this.tasksHistory.push({taskCurrent: task, isDelete: false});
     return this.http.post<Task>(this.apiUrl, task, httpOptions)
   }
 }

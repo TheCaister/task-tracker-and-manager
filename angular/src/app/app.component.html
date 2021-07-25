@@ -5,5 +5,8 @@
   <app-header></app-header>
   <!-- Switch to whatever route is linked -->
   <router-outlet></router-outlet>
+  <app-button text="Dark Mode" (btnClick)="toggleDarkMode()"></app-button>
+  <app-button text="Undo" (btnClick)="undoTask()"></app-button>
   <app-footer></app-footer>
 </div>
+
